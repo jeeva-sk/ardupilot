@@ -411,6 +411,8 @@ struct PACKED log_PID {
     float   DFF;
     float   Dmod;
     float   slew_rate;
+    float   dt;
+    float   max_dt;
     uint8_t flags;
 };
 
@@ -670,10 +672,10 @@ struct PACKED log_VER {
 // UNIT messages define units which can be referenced by FMTU messages
 // FMTU messages associate types (e.g. centimeters/second/second) to FMT message fields
 
-#define PID_LABELS "TimeUS,Tar,Act,Err,P,I,D,FF,DFF,Dmod,SRate,Flags"
-#define PID_FMT    "QffffffffffB"
-#define PID_UNITS  "s-----------"
-#define PID_MULTS  "F-----------"
+#define PID_LABELS "TimeUS,Tar,Act,Err,P,I,D,FF,DFF,Dmod,SRt,dt,mdt,Flags"
+#define PID_FMT    "QffffffffffffB"
+#define PID_UNITS  "s-------------"
+#define PID_MULTS  "F-------------"
 
 // @LoggerMessage: ADSB
 // @Description: Automatic Dependent Serveillance - Broadcast detected vehicle information
